@@ -27,7 +27,7 @@
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
 
-(load-theme 'misterioso)
+;;(load-theme 'misterioso)
 
 ;; set file to auto refresh when change detected (For example, changed by other)
 (global-auto-revert-mode 1)
@@ -53,21 +53,25 @@
                 ("微软雅黑" . 1.1)
                 ))
 
-(require 'meghanada)
-(add-hook 'java-mode-hook
-          (lambda ()
-            ;; meghanada-mode on
-            (meghanada-mode t)
-            ;; enable telemetry
-            (meghanada-telemetry-enable t)
-            (flycheck-mode +1)
-            (setq c-basic-offset 2)
-            ;; use code format
-            (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
-(cond
-   ((eq system-type 'windows-nt)
-    (setq meghanada-java-path (expand-file-name "bin/java.exe" (getenv "JAVA_HOME")))
-    (setq meghanada-maven-path "mvn"))
-   (t
-    (setq meghanada-java-path "java")
-    (setq meghanada-maven-path "mvn")))
+(require 'lsp-java)
+(add-hook 'java-mode-hook #'lsp)
+
+;; trigger treemacs
+(global-set-key (kbd "C-1") 'treemacs)
+;; lsp-go-imp
+(global-set-key (kbd "C-2") 'lsp-goto-implementation)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yasnippet-classic-snippets treemacs lsp-java flycheck company))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

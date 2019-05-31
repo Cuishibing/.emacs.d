@@ -1,0 +1,2 @@
+;;; -*- no-byte-compile: t -*-
+(define-package "lsp-ui" "6.0" "UI modules for lsp-mode" '((emacs "25.1") (dash "2.14") (dash-functional "1.2.0") (lsp-mode "6.0") (markdown-mode "2.3")) :authors '(("Sebastien Chapuis <sebastien@chapu.is>, Fangrui Song" . "i@maskray.me")) :maintainer '("Sebastien Chapuis <sebastien@chapu.is>, Fangrui Song" . "i@maskray.me") :url "https://github.com/emacs-lsp/lsp-ui")
