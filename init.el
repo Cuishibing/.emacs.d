@@ -20,14 +20,11 @@
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\C-r" 'recentf-open-files)
 
-;;(global-hl-line-mode t)
-
 (setq initial-frame-alist (quote((fullscreen . maximized))))
 
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
 
-;;(load-theme 'misterioso)
 
 ;; set file to auto refresh when change detected (For example, changed by other)
 (global-auto-revert-mode 1)
@@ -45,14 +42,9 @@
 (global-company-mode)
 (global-linum-mode)
 
-;; 解决windows下emacs卡顿问题
-(set-default-font "Consolas")
-(set-fontset-font "fontset-default" 'chinese-gbk "微软雅黑")
+;;(setq lsp-java-java-path "D:\\Program Files\\Java\\jdk11\\bin\\java.exe")
 
-(setq face-font-rescale-alist '(("宋体" . 1.2)
-                ("微软雅黑" . 1.1)
-                ))
-
+(require 'lsp-mode)
 (require 'lsp-java)
 (add-hook 'java-mode-hook #'lsp)
 
@@ -67,8 +59,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (yasnippet-classic-snippets treemacs lsp-java flycheck company))))
+   '(lsp-mode treemacs lsp-java flycheck company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
